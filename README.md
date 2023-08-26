@@ -1,13 +1,13 @@
 # dota2-benchmark
 
-1. Download PresentMon-1.8.0-x64.exe, put it in the project folder.
+1. Download PresentMon-1.9.0-x64.exe, put it in the project folder.
 
 https://github.com/GameTechDev/PresentMon
 
 2. Run 'run.bat' as admin, it will do the following:
 
 ```
-PresentMon-1.8.0-x64.exe -process_name dota2.exe -hotkey "f11" -delay 1 -timed 80
+PresentMon-1.9.0-x64.exe -process_name dota2.exe -hotkey "f11" -delay 1 -timed 80
 ```
 
 This makes F11 collect frame time data for Dota 2 for 80 seconds, after a delay of 1 second
@@ -34,3 +34,5 @@ demo_goto 71000 pause
 8. You will have a .csv for each test, group them in folders
 
 9. Run parse.py to get the summary file results.csv
+
+10. Run graphs.py to get the horizontal bar plot

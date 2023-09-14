@@ -9,7 +9,9 @@ data = pd.read_csv('results.csv', index_col = 0)
 # preview
 print(data.groupby('hw').mean()[['avg_fps', '1%_low']].sort_values(['avg_fps', '1%_low']))
 
-data.sort_values(by = 'avg_fps', inplace = True)
+sorter = data.groupby(by = 'test').mean().sort_values(by = 'avg_fps').index
+data['test'] = pd.Categorical(data['test'], sorter)
+data.sort_values(by = ['test', 'avg_fps'], inplace = True)
 
 # plot
 fig, ax = plt.subplots(figsize = (9, 5))

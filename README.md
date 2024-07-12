@@ -1,5 +1,7 @@
 # dota2-benchmark
 
+![Alt text](results.png?raw=true "test")
+
 Note: You can skip steps 1 and 2 and use software like CapFrameX.
 
 How to:

@@ -4,7 +4,8 @@ import pandas as pd
 
 from wifps import *
 
-tests = [p for p in os.listdir() if os.path.isdir(p)]
+ignore = ['__pycache__', '.git']
+tests = [p for p in os.listdir() if os.path.isdir(p) and p not in ignore]
 
 results = pd.DataFrame()
 k = 0
@@ -23,7 +24,7 @@ for i, test in enumerate(tests):
     for j, sample in enumerate(samples):
         data = pd.read_csv(os.path.join(test, sample))
 
-        frame_time = data['msBetweenPresents'].values / 1000
+        frame_time = data['FrameTime'].values / 1000
         fps = frame_rate(frame_time, 1)
         intervals = [10, 5, 2, 1, 0.5]
 

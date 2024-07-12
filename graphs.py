@@ -9,7 +9,7 @@ data = pd.read_csv('results.csv', index_col = 0)
 # preview
 print(data.groupby('hw').mean()[['avg_fps', '1%_low']].sort_values(['avg_fps', '1%_low']))
 
-sorter = data.groupby(by = 'test').mean().sort_values(by = 'avg_fps').index
+sorter = data.groupby(by = 'test').mean(numeric_only = True).sort_values(by = 'avg_fps').index
 data['test'] = pd.Categorical(data['test'], sorter)
 data.sort_values(by = ['test', 'avg_fps'], inplace = True)
 
@@ -40,7 +40,7 @@ ax.bar_label(ax.containers[2], fmt = '%.1f', padding = -40)
 ax.legend(ncol = 1, loc = 3, frameon = True)
 
 fig.suptitle('Dota 2 FPS benchmark')
-ax.set_title('Match ID: 7233123840, 22:05 > 23:25')
+ax.set_title('Match ID: 7839880889, 14:45 > 16:45')
 ax.set_ylabel('Configuration')
 ax.set_xlabel('FPS')
 fig.show()
